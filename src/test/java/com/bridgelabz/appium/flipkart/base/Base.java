@@ -24,7 +24,8 @@ public class Base {
         cap.setCapability("appPackage","com.flipkart.android");
 
         Thread.sleep(6000);
-
         driver = new AndroidDriver(new URL("http://0.0.0.0:4723/wd/hub"), cap);
+        Thread.sleep(6000);
+
     }
 }

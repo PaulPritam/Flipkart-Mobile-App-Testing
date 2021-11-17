@@ -1,5 +1,6 @@
 package com.bridgelabz.appium.flipkart.base;
 
+import com.bridgelabz.appium.flipkart.test.ExtentReportsImplementation;
 import io.appium.java_client.android.AndroidDriver;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -15,7 +16,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Base {
+public class Base extends ExtentReportsImplementation {
 
     public static AndroidDriver driver;
 

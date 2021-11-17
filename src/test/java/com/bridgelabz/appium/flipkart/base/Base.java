@@ -7,8 +7,6 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
-
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -47,6 +45,6 @@ public class Base {
         File file = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(file, new File("C:\\Users\\Pritam Paul\\" +
                 "Downloads\\demo1\\AmazonAutomation\\resources\\screenshots" +
-                dateFormat.format(date) + "screenshot.png"));
+                dateFormat.format(date) + ".png"));
     }
 }

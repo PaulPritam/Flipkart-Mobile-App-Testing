@@ -30,7 +30,7 @@ public class Page extends Base {
     @Test(dependsOnMethods = "click_Gmail_Option")
     public void input_GmailId()
     {
-        String gmail = "pritampaul19971997@gmail.com";
+        String gmail = "";
 
         driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
 
@@ -48,7 +48,7 @@ public class Page extends Base {
     public void enter_Password_For_Gmail()
     {
         driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
-        driver.findElement(By.id("phone_input")).sendKeys("Pritampaul@1997");
+        driver.findElement(By.id("phone_input")).sendKeys("");
         driver.findElement(By.id("button")).click();
     }
 

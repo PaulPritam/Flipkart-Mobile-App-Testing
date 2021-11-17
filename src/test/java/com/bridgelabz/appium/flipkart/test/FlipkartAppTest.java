@@ -2,13 +2,19 @@ package com.bridgelabz.appium.flipkart.test;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.bridgelabz.appium.flipkart.base.Base;
-import com.bridgelabz.appium.flipkart.page.Page;
+import com.bridgelabz.appium.flipkart.page.FlipkartLoginPage;
+import com.bridgelabz.appium.flipkart.page.FlipkartOrderPage;
+import com.bridgelabz.appium.flipkart.page.LanguageSelectionPage;
+import io.appium.java_client.MobileElement;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.annotations.Test;
 
 public class FlipkartAppTest extends Base {
-    public Page page = new Page();
+    public LanguageSelectionPage page = new LanguageSelectionPage();
+    public FlipkartLoginPage loginPage = new FlipkartLoginPage();
+    public FlipkartOrderPage orderPage = new FlipkartOrderPage();
+
     private static final Logger LOGGER = LogManager.getLogger(FlipkartAppTest.class);
     ExtentTest test1;
 
@@ -21,6 +27,7 @@ public class FlipkartAppTest extends Base {
                 "Selects english language from the given options");
         page.choose_English_Language();
         page.click_Continue_After_Language_Selection();
+
     }
 
     @Test(dependsOnMethods = "language_Selection")
@@ -29,10 +36,10 @@ public class FlipkartAppTest extends Base {
         test1 = extent.createTest("Login to app",
                 "Logs in to the Flipkart application");
 
-        page.click_Gmail_Option();
-        page.input_GmailId();
-        page.click_Continue_After_Gmail();
-        page.enter_Password_For_Gmail();
+        loginPage.click_Gmail_Option();
+        loginPage.input_GmailId();
+        loginPage.click_Continue_After_Gmail();
+        loginPage.enter_Password_For_Gmail();
     }
 
     @Test(dependsOnMethods = "login_To_Flipkart")
@@ -41,10 +48,10 @@ public class FlipkartAppTest extends Base {
         test1 = extent.createTest("Select a product and order",
                 "Selects the given product and places the order");
 
-        page.select_Order();
-        page.add_To_Cart();
-        page.proceed_To_Cart();
-        page.place_order();
+        orderPage.select_Order();
+        orderPage.add_To_Cart();
+        orderPage.proceed_To_Cart();
+        orderPage.place_order();
     }
 
 

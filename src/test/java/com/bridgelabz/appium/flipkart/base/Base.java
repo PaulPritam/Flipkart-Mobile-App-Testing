@@ -20,8 +20,10 @@ public class Base {
         cap.setCapability("udid", "emulator-5554");
         cap.setCapability("platformName", "Android");
         cap.setCapability("platformVersion", "8.0.0");
-        cap.setCapability("app","C:\\Users\\Pritam Paul\\Downloads\\flipkart.apk");
+        cap.setCapability("app","C:\\Users\\Pritam Paul\\" +
+                "Downloads\\demo1\\AmazonAutomation\\resources\\flipkart.apk");
         cap.setCapability("appPackage","com.flipkart.android");
+        cap.setCapability("autoGrantPermissions",true);
 
         Thread.sleep(6000);
         driver = new AndroidDriver(new URL("http://0.0.0.0:4723/wd/hub"), cap);

@@ -8,6 +8,9 @@ import com.bridgelabz.appium.flipkart.page.LanguageSelectionPage;
 import io.appium.java_client.MobileElement;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class FlipkartAppTest extends Base {
@@ -27,7 +30,9 @@ public class FlipkartAppTest extends Base {
                 "Selects english language from the given options");
         page.choose_English_Language();
         page.click_Continue_After_Language_Selection();
-
+        WebElement continueBtn = driver.findElement(By.id("select_btn"));
+        boolean checkContinue = continueBtn.isEnabled();
+        Assert.assertEquals(checkContinue,true);
     }
 
     @Test(dependsOnMethods = "language_Selection")
@@ -40,6 +45,9 @@ public class FlipkartAppTest extends Base {
         loginPage.input_GmailId();
         loginPage.click_Continue_After_Gmail();
         loginPage.enter_Password_For_Gmail();
+        WebElement continueBtn = driver.findElement(By.id("select_btn"));
+        boolean checkContinue = continueBtn.isEnabled();
+        Assert.assertEquals(checkContinue,true);
     }
 
     @Test(dependsOnMethods = "login_To_Flipkart")
@@ -52,6 +60,8 @@ public class FlipkartAppTest extends Base {
         orderPage.add_To_Cart();
         orderPage.proceed_To_Cart();
         orderPage.place_order();
+        String orderList = driver.findElement(By.xpath("//android.widget.TextView")).getText();
+        Assert.assertEquals(orderList,"Order Summary");
     }
 
 

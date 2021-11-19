@@ -3,7 +3,7 @@ package com.bridgelabz.appium.flipkart.page;
 import com.bridgelabz.appium.flipkart.base.Base;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-
+import org.testng.Assert;
 import java.util.concurrent.TimeUnit;
 
 public class FlipkartLoginPage extends Base {
@@ -33,6 +33,9 @@ public class FlipkartLoginPage extends Base {
 
         WebElement continueButton = driver.findElement(By.id("button"));
         continueButton.click();
+        WebElement continueBtn = driver.findElement(By.id("select_btn"));
+        boolean checkContinue = continueBtn.isEnabled();
+        Assert.assertEquals(checkContinue,true);
     }
 
 

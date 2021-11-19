@@ -15,13 +15,14 @@ import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 public class Base extends ExtentReportsImplementation {
 
     public static AndroidDriver driver;
 
     @BeforeTest
-    public static void setup() throws InterruptedException, MalformedURLException {
+    public static void setup() throws MalformedURLException {
         DesiredCapabilities cap = new DesiredCapabilities();
 
         cap.setCapability("deviceName", "sdk_gphone_x86");
@@ -33,9 +34,8 @@ public class Base extends ExtentReportsImplementation {
         cap.setCapability("appPackage","com.flipkart.android");
         cap.setCapability("autoGrantPermissions",true);
 
-        Thread.sleep(6000);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver = new AndroidDriver(new URL("http://0.0.0.0:4723/wd/hub"), cap);
-        Thread.sleep(6000);
     }
 
     @AfterTest
